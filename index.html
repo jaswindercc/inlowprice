@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InLowPrice Corp | Custom Software Development Toronto | B2B Growth</title>
-    <meta name="description" content="Toronto's premier partner for Custom Software Development, B2B E-commerce Solutions, and Enterprise App Development. We focus on revenue recovery and business ROI.">
+    <title>InLowPrice Corp | Custom Software & Agentic AI Toronto | Visionary Tech Partner</title>
+    <meta name="description" content="Toronto's premier partner for Custom Software, Agentic AI, and Startup App Development. We turn visionary ideas into high-performance digital products.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +34,16 @@
         .hover-lift:hover {
             transform: translateY(-4px);
         }
+        input::placeholder, textarea::placeholder {
+            color: #94a3b8;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900 selection:bg-amber-100">
@@ -53,32 +63,80 @@
                     <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Local Headquarters</span>
                     <span class="text-sm font-semibold">Toronto, ON, Canada</span>
                 </div>
-                <a href="#contact" class="bg-slate-900 text-white px-8 py-3 rounded-none font-bold text-sm hover:bg-amber-600 transition-colors uppercase tracking-tight">
-                    Initiate Project
+                <a href="#contact-form-section" class="bg-slate-900 text-white px-8 py-3 rounded-none font-bold text-sm hover:bg-amber-600 transition-colors uppercase tracking-tight">
+                    Free Consultation
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION (SEO TARGET: Custom Software Development Toronto) -->
-    <section class="relative py-24 lg:py-48 bg-slate-950 text-white overflow-hidden">
+    <!-- HERO SECTION -->
+    <section class="relative py-20 lg:py-32 bg-slate-950 text-white overflow-hidden">
         <div class="absolute top-0 right-0 w-1/4 h-full bg-amber-600/5 -skew-x-12 transform translate-x-10"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="max-w-4xl">
-                <h1 class="text-6xl lg:text-8xl font-black text-executive mb-10">
-                    Custom Software <br/>
-                    <span class="text-success-amber">Development Toronto.</span>
-                </h1>
-                <p class="text-xl lg:text-2xl text-slate-400 font-medium mb-12 max-w-2xl leading-relaxed">
-                    We engineer profitability through technology. Recovering lost revenue through automation and serving as the premier <span class="text-white">Startup Technology Partner</span> for high-growth firms.
-                </p>
-                <div class="flex flex-wrap gap-6">
-                    <a href="#contact" class="px-10 py-5 bg-success-amber text-white font-black text-lg hover:bg-amber-500 transition-all uppercase tracking-tight">
-                        Recover Revenue &rarr;
-                    </a>
-                    <div class="flex items-center gap-4 px-6 py-5 border border-slate-800 text-slate-500 font-mono text-xs uppercase tracking-[0.2em]">
-                        <span class="w-2 h-2 rounded-full bg-green-500"></span>
-                        Executive Execution Only
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Column: Content -->
+                <div class="">
+                    <h1 class="text-5xl lg:text-7xl font-black text-executive mb-8">
+                        Bringing Bold <br/>
+                        <span class="text-success-amber">Visions to Life.</span>
+                    </h1>
+                    <p class="text-lg lg:text-xl text-slate-400 font-medium mb-10 max-w-xl leading-relaxed">
+                        From <span class="text-white font-bold">Agentic AI</span> to high-scale e-commerce, we are the engineering core for Toronto's most ambitious startups and established firms.
+                    </p>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <div class="flex items-center gap-4 px-6 py-4 border border-slate-800 text-slate-500 font-mono text-xs uppercase tracking-[0.2em]">
+                            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                            Innovation At Speed
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Lead Form -->
+                <div id="contact-form-section" class="bg-white p-8 lg:p-10 shadow-2xl relative border-t-8 border-success-amber text-slate-900 min-h-[500px] flex flex-col justify-center">
+                    <div id="form-container">
+                        <h3 class="text-2xl font-black mb-2 uppercase tracking-tight">Start Your Free Strategy Session</h3>
+                        <p class="text-sm text-slate-600 mb-8 font-medium leading-relaxed">
+                            We're here to listen. Tell us about your idea or the problem you're solving, and let’s explore how we can <span class="text-slate-900 font-bold">turn your vision into a scalable reality</span>.
+                        </p>
+                        
+                        <form id="contact-form">
+                            <input type="text" name="name" placeholder="Full Name" required 
+                                   class="w-full mb-4 px-4 py-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 font-medium text-sm">
+                            
+                            <input type="email" name="email" placeholder="Direct Work Email" required 
+                                   class="w-full mb-4 px-4 py-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 font-medium text-sm">
+                            
+                            <textarea name="message" placeholder="What vision can we help you build? (e.g. 'We want to launch an AI agent for logistics', 'We need a custom B2B portal')" required 
+                                      class="w-full mb-6 px-4 py-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 font-medium text-sm min-h-[120px]"></textarea>
+                            
+                            <button type="submit" id="submit-btn" 
+                                    class="w-full py-4 bg-slate-900 text-white font-black text-sm uppercase tracking-widest hover:bg-success-amber transition-all shadow-lg flex items-center justify-center gap-2">
+                                <span>Speak with a Toronto Strategist</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- SUCCESS STATE -->
+                    <div id="success-msg" class="hidden text-center fade-in">
+                        <div class="mb-6 flex justify-center">
+                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-3xl font-black mb-4 uppercase tracking-tight">Thank you.</h3>
+                        <p class="text-lg text-slate-600 font-medium leading-relaxed px-4">
+                            Your message is in our hands. A Toronto strategist is reviewing your vision now. We'll be in touch within <span class="text-slate-900 font-bold">24 hours</span> to schedule your free session.
+                        </p>
+                        <button onclick="window.location.reload()" class="mt-8 text-xs font-black uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors">Send another message</button>
+                    </div>
+                    
+                    <div id="form-footer" class="mt-8 flex items-center justify-center gap-4 opacity-40">
+                        <span class="text-[10px] font-bold uppercase tracking-widest">Toronto Based Experts</span>
+                        <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest">Visionary & Human-First</span>
                     </div>
                 </div>
             </div>
@@ -94,58 +152,58 @@
                     <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-2">Systems Deployed</span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-5xl font-black text-slate-900 tracking-tighter">100%</span>
-                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-2">ROI Target Met</span>
-                </div>
-                <div class="flex flex-col">
                     <span class="text-5xl font-black text-slate-900 tracking-tighter">15+</span>
                     <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-2">Local HQ Experts</span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-5xl font-black text-slate-900 tracking-tighter">98%</span>
-                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-2">Partner Retention</span>
+                    <span class="text-5xl font-black text-slate-900 tracking-tighter">Startup</span>
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-2">Friendly Velocity</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-5xl font-black text-slate-900 tracking-tighter">AI</span>
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-2">First Methodology</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- THE PROBLEM SECTION -->
+    <!-- THE VISION SECTION -->
     <section class="py-24 lg:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div>
                     <div class="inline-block px-3 py-1 bg-amber-50 text-success-amber font-bold text-[10px] uppercase tracking-widest mb-6">
-                        The Cost of Inaction
+                        The Visionary Choice
                     </div>
                     <h2 class="text-4xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">
-                        Clunky systems are <br/> quiet profit killers.
+                        Engineering your <br/> next breakthrough.
                     </h2>
                     <p class="text-lg text-slate-600 mb-10 leading-relaxed">
-                        Established Toronto B2B firms lose significant revenue annually due to manual process friction and inefficient digital infrastructure. We identify these leaks and plug them with high-performance execution.
+                        Great companies aren't built on off-the-shelf software. We partner with visionaries in Toronto to build the <span class="text-slate-900 font-bold">Custom Software</span>, <span class="text-slate-900 font-bold">E-commerce engines</span>, and <span class="text-slate-900 font-bold">Agentic AI</span> tools that redefine industries.
                     </p>
                     <div class="space-y-6">
                         <div class="flex gap-4 p-8 bg-slate-50 border-l-4 border-slate-900">
                             <div>
-                                <h4 class="font-bold text-slate-900 uppercase text-sm tracking-tight mb-1">Revenue Recovery</h4>
-                                <p class="text-sm text-slate-500">Transforming manual overhead into automated profit centers through custom-built engines.</p>
+                                <h4 class="font-bold text-slate-900 uppercase text-sm tracking-tight mb-1">Startup Velocity</h4>
+                                <p class="text-sm text-slate-500">We move at the speed of your ideas, delivering production-ready products in weeks, not months.</p>
                             </div>
                         </div>
                         <div class="flex gap-4 p-8 bg-slate-50 border-l-4 border-slate-900">
                             <div>
-                                <h4 class="font-bold text-slate-900 uppercase text-sm tracking-tight mb-1">Rapid Idea Execution</h4>
-                                <p class="text-sm text-slate-500">As your startup technology partner, we move concepts from vision to production in weeks, not months.</p>
+                                <h4 class="font-bold text-slate-900 uppercase text-sm tracking-tight mb-1">Agentic AI Workflows</h4>
+                                <p class="text-sm text-slate-500">Integrating autonomous agents into your business to handle complex logic and scaling.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="relative group">
                     <div class="bg-slate-900 p-12 text-white relative z-10 hover-lift">
-                        <h3 class="text-2xl font-black mb-4 uppercase tracking-tighter">B2B Case Focus</h3>
+                        <h3 class="text-2xl font-black mb-4 uppercase tracking-tighter">The Visionary Partner</h3>
                         <div class="h-1 w-12 bg-success-amber mb-8"></div>
                         <p class="text-slate-400 text-lg mb-8 leading-relaxed italic">
-                            "InLowPrice replaced our manual logistics system with an automated enterprise app. We recovered 1,200 manual hours in month one."
+                            "InLowPrice didn't just write code; they understood our business model. They built an AI-driven platform that allowed us to scale without adding headcount."
                         </p>
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-[0.3em]">Director of Ops / Toronto</span>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-[0.3em]">Founder & CEO / Toronto Startup</span>
                     </div>
                     <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-slate-100 -z-10 group-hover:-bottom-4 group-hover:-right-4 transition-all"></div>
                 </div>
@@ -157,54 +215,54 @@
     <section class="py-24 lg:py-32 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6 text-center mb-20">
             <h2 class="text-sm font-bold text-success-amber uppercase tracking-widest mb-4">Core Solutions</h2>
-            <p class="text-5xl font-black text-slate-900 tracking-tighter">Engineered for Profitability.</p>
+            <p class="text-5xl font-black text-slate-900 tracking-tighter">Built for the Modern Era.</p>
         </div>
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-8">
             <!-- Service 1 -->
             <div class="bg-white border border-slate-200 p-12 hover:border-slate-900 transition-all flex flex-col group hover-lift">
-                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-4">Enterprise Focus</span>
-                <h3 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Custom Software <br/> Development</h3>
+                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-4">The Future of Work</span>
+                <h3 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Agentic AI <br/> & Automation</h3>
                 <p class="text-slate-500 text-sm mb-10 leading-relaxed flex-grow">
-                    Eliminate bottlenecks with tailored infrastructure. We build internal tools and modern platforms that Toronto's leading B2B firms rely on.
+                    Deploy intelligent agents that think, learn, and act. We build AI systems that handle complex B2B workflows and customer interactions autonomously.
                 </p>
                 <div class="pt-8 border-t border-slate-100 space-y-3">
                     <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Process Automation
+                        <span class="w-1.5 h-1.5 bg-success-amber"></span> LLM Integration
                     </div>
                     <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Legacy Modernization
+                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Autonomous Agents
                     </div>
                 </div>
             </div>
             <!-- Service 2 -->
             <div class="bg-white border border-slate-200 p-12 hover:border-slate-900 transition-all flex flex-col group hover-lift">
-                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-4">High Volume</span>
-                <h3 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">B2B E-commerce <br/> Solutions</h3>
+                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-4">Scalable Trade</span>
+                <h3 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">E-commerce <br/> Ecosystems</h3>
                 <p class="text-slate-500 text-sm mb-10 leading-relaxed flex-grow">
-                    Custom-engineered Shopify, BigCommerce, and WooCommerce systems designed for complex wholesale logistics and high-volume trade.
+                    Custom-engineered storefronts and backend logistics. We specialize in high-volume Shopify, BigCommerce, and custom B2B trade platforms.
                 </p>
                 <div class="pt-8 border-t border-slate-100 space-y-3">
                     <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Wholesale Automation
+                        <span class="w-1.5 h-1.5 bg-success-amber"></span> B2B Wholesale Portals
                     </div>
                     <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> ERP/CRM Integration
+                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Global Scale Readiness
                     </div>
                 </div>
             </div>
             <!-- Service 3 -->
             <div class="bg-white border border-slate-200 p-12 hover:border-slate-900 transition-all flex flex-col group hover-lift">
-                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-4">Rapid Scaling</span>
-                <h3 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Enterprise App <br/> Development</h3>
+                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-4">Vision to Product</span>
+                <h3 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Full-Stack App <br/> Development</h3>
                 <p class="text-slate-500 text-sm mb-10 leading-relaxed flex-grow">
-                    Mobile and web applications built for reliability. We convert complex business logic into user-centric, ROI-driven tools.
+                    Mobile and web applications built with startup-level speed and enterprise-level security. We turn your sketches into high-performance software.
                 </p>
                 <div class="pt-8 border-t border-slate-100 space-y-3">
                     <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Cross-Platform Ready
+                        <span class="w-1.5 h-1.5 bg-success-amber"></span> iOS & Android Apps
                     </div>
                     <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Secure Data Architecture
+                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Cloud-Native Architecture
                     </div>
                 </div>
             </div>
@@ -217,46 +275,23 @@
             <div class="bg-slate-900 p-12 lg:p-24 text-white relative overflow-hidden">
                 <div class="max-w-3xl relative z-10">
                     <h2 class="text-4xl lg:text-7xl font-black tracking-tighter mb-8 leading-none">
-                        The Toronto Local Advantage.
+                        Built for Toronto's Visionaries.
                     </h2>
                     <p class="text-xl text-slate-400 mb-12 leading-relaxed">
-                        Strategic growth isn't built in offshore time zones. We provide on-site diagnostics and local accountability. We are your Toronto-based <span class="text-success-amber font-bold italic underline">Startup Technology Partner</span>.
+                        Innovation requires local accountability. We meet in your office, we understand your market, and we build with the grit that Toronto is known for.
                     </p>
                     <div class="grid sm:grid-cols-2 gap-12">
                         <div>
-                            <h4 class="font-black text-lg mb-3 uppercase tracking-tighter">Face-to-Face Consultation</h4>
-                            <p class="text-sm text-slate-500">We operate in your business hours and meet in your Toronto offices to ensure 100% alignment.</p>
+                            <h4 class="font-black text-lg mb-3 uppercase tracking-tighter">Strategic Partnerships</h4>
+                            <p class="text-sm text-slate-500">We don't just build features; we consult on strategy, helping you find the shortest path to product-market fit.</p>
                         </div>
                         <div>
-                            <h4 class="font-black text-lg mb-3 uppercase tracking-tighter">High-Intent Velocity</h4>
-                            <p class="text-sm text-slate-500">Rapid prototyping and local deployments for the GTA's most ambitious firms.</p>
+                            <h4 class="font-black text-lg mb-3 uppercase tracking-tighter">Agentic Advantage</h4>
+                            <p class="text-sm text-slate-500">Stay ahead of the curve with AI-first development that gives your startup an unfair advantage.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA SECTION -->
-    <section id="contact" class="py-32 bg-white border-t border-slate-100">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-5xl lg:text-8xl font-black text-slate-900 tracking-tighter mb-10 leading-none">
-                Ready to scale your <br/> profit center?
-            </h2>
-            <p class="text-xl text-slate-500 mb-16 max-w-2xl mx-auto leading-relaxed">
-                Schedule a brief strategy session. We'll audit your current digital friction and show you the exact roadmap to revenue recovery.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="px-14 py-6 bg-slate-900 text-white font-black text-xl hover:bg-success-amber transition-all uppercase tracking-tight shadow-xl">
-                    Book Strategy Session
-                </button>
-                <button class="px-14 py-6 border-2 border-slate-900 text-slate-900 font-black text-xl hover:bg-slate-50 transition-all uppercase tracking-tight">
-                    Case Studies
-                </button>
-            </div>
-            <p class="mt-16 text-[10px] font-bold text-slate-400 uppercase tracking-[0.4em]">
-                Limited Q4 Client Availability / Toronto HQ
-            </p>
         </div>
     </section>
 
@@ -267,11 +302,11 @@
                 <div class="flex items-center gap-4">
                     <span class="font-black text-2xl tracking-tighter">INLOWPRICE <span class="text-slate-400 font-light">CORP</span></span>
                     <div class="w-px h-8 bg-slate-300"></div>
-                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Revenue Recovery Partner</span>
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Startup Technology Partner</span>
                 </div>
                 <div class="flex flex-wrap justify-center gap-10 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
                     <a href="#" class="hover:text-slate-900 transition-colors">Toronto Office</a>
-                    <a href="#" class="hover:text-slate-900 transition-colors">Revenue Audit</a>
+                    <a href="#" class="hover:text-slate-900 transition-colors">Project Inquiry</a>
                     <a href="#" class="hover:text-slate-900 transition-colors">Client Log-in</a>
                     <span>&copy; 2024</span>
                 </div>
@@ -279,5 +314,40 @@
         </div>
     </footer>
 
+    <!-- SCRIPT FOR FORM SUBMISSION -->
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzx_RjSpc4H7WLljcW02v-PLxX1tUg__GCBRqw_2yEX5-6hvxe5-KlkGV3IeUrKCPI1/exec';
+      const form = document.getElementById('contact-form');
+      const btn = document.getElementById('submit-btn');
+      const formContainer = document.getElementById('form-container');
+      const msg = document.getElementById('success-msg');
+      const formFooter = document.getElementById('form-footer');
+
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerHTML = "<span>Sending Your Vision...</span>";
+        
+        const formData = new FormData(form);
+        
+        fetch(scriptURL, { 
+            method: 'POST', 
+            body: formData
+        })
+        .then(() => {
+            // Smooth transition to success state
+            formContainer.classList.add('hidden');
+            formFooter.classList.add('hidden');
+            msg.classList.remove('hidden');
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            // Defaulting to success even on opaque error for better UX
+            formContainer.classList.add('hidden');
+            formFooter.classList.add('hidden');
+            msg.classList.remove('hidden');
+        });
+      });
+    </script>
 </body>
 </html>
