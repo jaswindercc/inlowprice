@@ -109,18 +109,14 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <!-- SVG Recreation of Diamond Logo -->
-                <div class="flex flex-col items-center justify-center gap-[2px]">
-                   <div class="flex gap-[2px]">
-                       <div class="diamond-shape opacity-40"></div>
-                       <div class="diamond-shape"></div>
-                   </div>
-                   <div class="flex gap-[2px]">
-                       <div class="diamond-shape"></div>
-                       <div class="diamond-shape opacity-40"></div>
-                   </div>
+                <div class="flex items-center justify-center gap-[2px] w-8 h-8 relative">
+                   <div class="absolute top-0 left-1/2 -translate-x-1/2 diamond-shape scale-75 opacity-40"></div>
+                   <div class="absolute left-0 top-1/2 -translate-y-1/2 diamond-shape scale-75"></div>
+                   <div class="absolute right-0 top-1/2 -translate-y-1/2 diamond-shape scale-75"></div>
+                   <div class="absolute bottom-0 left-1/2 -translate-x-1/2 diamond-shape scale-75 opacity-40"></div>
                 </div>
                 <div class="flex flex-col">
-                    <span class="logo-text-top text-2xl text-slate-900">In <span class="red-accent font-normal">Low</span> Price</span>
+                    <span class="logo-text-top text-2xl text-slate-900 leading-none">In <span class="red-accent font-normal">Low</span> Price</span>
                     <span class="logo-text-bottom text-slate-500 uppercase">Corporation</span>
                 </div>
             </div>
@@ -132,16 +128,16 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION (High Contrast Dark) -->
+    <!-- HERO SECTION -->
     <section class="relative pt-32 pb-32 lg:pt-48 lg:pb-52 overflow-hidden hero-gradient">
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
             <div class="inline-flex items-center gap-3 px-5 py-2 bg-white/5 border border-white/10 rounded-full mb-10">
                 <span class="pulse-red"></span>
                 <span class="text-[11px] font-bold uppercase tracking-[0.3em] text-white/60">Toronto’s Trusted Dev Shop Since 2011</span>
             </div>
-            <h1 class="text-5xl lg:text-8xl font-black text-white text-executive mb-10 max-w-6xl mx-auto">
-                Custom Software Development, E-commerce, App Development <br/>
-                <span class="red-accent">Agentic AI.</span>
+            <h1 class="text-4xl lg:text-7xl font-black text-white text-executive mb-10 max-w-6xl mx-auto">
+                Custom Software. Agentic AI. <br class="hidden md:block"/>
+                <span class="red-accent">E-commerce. Apps.</span>
             </h1>
             <p class="text-xl lg:text-2xl text-slate-400 font-medium mb-16 max-w-4xl mx-auto leading-relaxed">
                 Toronto’s trusted dev shop since 2011. Whether you’re a startup launching a vision or an established enterprise automating with <span class="text-white">Agentic AI</span>, we build software that scales.
@@ -153,7 +149,7 @@
         </div>
     </section>
 
-    <!-- STRATEGIC PATHWAYS (Contrast Break: Light) -->
+    <!-- STRATEGIC PATHWAYS -->
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12">
@@ -178,7 +174,7 @@
         </div>
     </section>
 
-    <!-- CORE SERVICES (Contrast Break: Slate-50) -->
+    <!-- CORE SERVICES -->
     <section id="solutions" class="py-32 bg-slate-50 border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-24">
@@ -186,7 +182,6 @@
                 <p class="text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter">Engineered for Profit.</p>
             </div>
             <div class="grid lg:grid-cols-3 gap-10">
-                <!-- S1 -->
                 <div class="bg-white p-12 hover-lift border border-slate-200">
                     <div class="w-14 h-14 bg-red-600 text-white flex items-center justify-center mb-8">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
@@ -198,7 +193,6 @@
                         <li class="flex items-center gap-3 text-[10px] font-bold text-slate-700 uppercase tracking-widest"><span class="w-1.5 h-1.5 bg-red-600"></span> Workflow Agents</li>
                     </ul>
                 </div>
-                <!-- S2 -->
                 <div class="bg-white p-12 hover-lift border border-slate-200">
                     <div class="w-14 h-14 bg-slate-900 text-white flex items-center justify-center mb-8">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
@@ -210,7 +204,6 @@
                         <li class="flex items-center gap-3 text-[10px] font-bold text-slate-700 uppercase tracking-widest"><span class="w-1.5 h-1.5 bg-red-600"></span> ERP Syncing</li>
                     </ul>
                 </div>
-                <!-- S3 -->
                 <div class="bg-white p-12 hover-lift border border-slate-200">
                     <div class="w-14 h-14 bg-slate-900 text-white flex items-center justify-center mb-8">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
@@ -226,7 +219,7 @@
         </div>
     </section>
 
-    <!-- AGENTIC AI (Contrast Break: Dark High-Impact) -->
+    <!-- AGENTIC AI -->
     <section id="agentic" class="py-32 bg-slate-900 text-white overflow-hidden relative">
         <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/40 via-transparent to-transparent"></div>
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-10">
@@ -268,32 +261,6 @@
         </div>
     </section>
 
-    <!-- TORONTO ADVANTAGE (High Contrast White) -->
-    <section class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="border-[16px] border-slate-900 p-12 lg:p-24 relative">
-                <div class="max-w-3xl">
-                    <h2 class="text-5xl lg:text-8xl font-black tracking-tighter mb-10 leading-[0.9] text-slate-900">
-                        Built for Toronto's <br/> Visionaries.
-                    </h2>
-                    <p class="text-xl lg:text-2xl text-slate-600 mb-12 leading-relaxed font-medium">
-                        Innovation requires local accountability. We meet in your office, understand your market, and build with the grit that Toronto is known for.
-                    </p>
-                    <div class="grid sm:grid-cols-2 gap-16">
-                        <div>
-                            <h4 class="font-black text-xs mb-4 uppercase tracking-[0.3em] text-red-600">Local Presence</h4>
-                            <p class="text-sm text-slate-500 font-medium">Accountability you can't get overseas. We are your technology partners next door.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-black text-xs mb-4 uppercase tracking-[0.3em] text-red-600">Agentic Advantage</h4>
-                            <p class="text-sm text-slate-500 font-medium">Stay ahead of the curve with AI-first development that gives your firm a structural advantage.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- STRATEGY BRIEF FORM -->
     <section id="contact" class="py-32 bg-slate-50 border-t border-slate-200">
         <div class="max-w-4xl mx-auto px-6">
@@ -301,7 +268,6 @@
                 <h2 class="text-5xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter">Start Your Vision.</h2>
                 <p class="text-slate-500 font-medium text-lg">Brief us on your business goals. We reply with a technical strategy within 24 hours.</p>
             </div>
-            
             <div id="form-container" class="bg-white p-10 lg:p-20 shadow-2xl rounded-none border border-slate-200">
                 <form id="contact-form" class="space-y-10">
                     <div class="grid md:grid-cols-2 gap-10">
@@ -321,7 +287,6 @@
                     <button type="submit" id="submit-btn" class="w-full bg-red-accent text-white p-6 font-black uppercase tracking-[0.2em] hover:bg-slate-900 transition-all text-xs">Submit Strategy Brief</button>
                 </form>
             </div>
-
             <div id="success-msg" class="hidden text-center py-24 bg-white border border-slate-200 shadow-xl">
                 <div class="flex justify-center mb-10">
                     <div class="w-24 h-24 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center border border-emerald-100">
@@ -361,58 +326,29 @@
             </div>
             <h3 class="text-base font-black text-slate-900 mb-2 leading-tight text-center">Ready to Automate?</h3>
             <p class="text-[11px] text-slate-500 mb-6 font-medium leading-relaxed text-center">Book a 15-min consultation with our engineering team.</p>
-            <a href="https://calendar.app.google/xEYGmg4R727b5sRBA" 
-               target="_blank" 
-               class="bg-slate-900 text-white px-5 py-4 text-[10px] rounded font-black uppercase tracking-[0.2em] flex items-center gap-2 transition-all hover:bg-red-600 shadow-xl w-full justify-center">
-               Book Strategy Call
-            </a>
+            <a href="https://calendar.app.google/xEYGmg4R727b5sRBA" target="_blank" class="bg-slate-900 text-white px-5 py-4 text-[10px] rounded font-black uppercase tracking-[0.2em] flex items-center gap-2 transition-all hover:bg-red-600 shadow-xl w-full justify-center">Book Strategy Call</a>
         </div>
     </div>
 
-    <!-- SCRIPTS -->
     <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbzx_RjSpc4H7WLljcW02v-PLxX1tUg__GCBRqw_2yEX5-6hvxe5-KlkGV3IeUrKCPI1/exec';
       const form = document.getElementById('contact-form');
       const btn = document.getElementById('submit-btn');
       const formContainer = document.getElementById('form-container');
       const msg = document.getElementById('success-msg');
-
       form.addEventListener('submit', e => {
         e.preventDefault();
         btn.disabled = true;
-        btn.innerHTML = "Submitting Strategy Brief...";
-        
+        btn.innerHTML = "Submitting Brief...";
         const formData = new FormData(form);
-        
-        fetch(scriptURL, { 
-            method: 'POST', 
-            body: formData,
-            mode: 'no-cors'
-        })
-        .then(() => {
-            formContainer.classList.add('hidden');
-            msg.classList.remove('hidden');
-            window.scrollTo({ top: document.getElementById('contact').offsetTop - 100, behavior: 'smooth' });
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            formContainer.classList.add('hidden');
-            msg.classList.remove('hidden');
-        });
+        fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
+        .then(() => { formContainer.classList.add('hidden'); msg.classList.remove('hidden'); window.scrollTo({ top: document.getElementById('contact').offsetTop - 100, behavior: 'smooth' }); })
+        .catch(() => { formContainer.classList.add('hidden'); msg.classList.remove('hidden'); });
       });
-
-      // Simple Reveal Observer
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-          }
-        });
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('fade-in'); });
       }, { threshold: 0.1 });
-
-      document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-      });
+      document.querySelectorAll('section').forEach(section => observer.observe(section));
     </script>
 </body>
 </html>
