@@ -4,386 +4,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InLowPrice Corp | Custom Software & Agentic AI Toronto | Visionary Tech Partner</title>
-    <meta name="description" content="Toronto's premier partner for Custom Software, Agentic AI, and Startup App Development. We turn visionary ideas into high-performance digital products.">
+    <title>InLowPrice Corp | Enterprise Tech & Agentic AI | Toronto</title>
+    <meta name="description" content="Toronto's engineering powerhouse since 2011. Specialized in Agentic AI, Legacy Modernization, and High-Scale Infrastructure.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --brand-red: #D61F26;
+            --brand-dark: #121212;
+            --brand-slate: #1e293b;
+        }
         body {
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
+            background-color: #ffffff;
+            color: #1e293b;
         }
         .text-executive {
-            letter-spacing: -0.05em;
-            line-height: 0.9;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
         }
-        .bg-success-amber {
-            background-color: #d97706;
+        .red-accent { color: var(--brand-red); }
+        .bg-red-accent { background-color: var(--brand-red); }
+        .border-red-accent { border-color: var(--brand-red); }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
         }
-        .border-success-amber {
-            border-color: #d97706;
-        }
-        .text-success-amber {
-            color: #d97706;
-        }
+        
         .hover-lift {
-            transition: transform 0.2s ease-out;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .hover-lift:hover {
-            transform: translateY(-4px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
         }
-        input::placeholder, textarea::placeholder {
-            color: #94a3b8;
+
+        .logo-text-top {
+            font-weight: 300;
+            letter-spacing: -0.02em;
         }
+        .logo-text-bottom {
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            font-size: 0.65rem;
+        }
+
+        .diamond-shape {
+            width: 14px;
+            height: 14px;
+            background-color: var(--brand-red);
+            transform: rotate(45deg);
+            display: inline-block;
+        }
+
         .fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
+            animation: fadeIn 0.8s ease-out forwards;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Floating Calendar Card Styles */
         .calendar-float-card {
             position: fixed;
             bottom: 24px;
             right: 24px;
             z-index: 1000;
             width: 100%;
-            max-width: 340px;
+            max-width: 320px;
             background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-top: 4px solid #22c55e; /* The Green Touch */
-            border-radius: 15px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .calendar-float-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.15);
-        }
-        .pulse-dot {
-            height: 8px;
-            width: 8px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
-            animation: pulse-green 2s infinite;
-        }
-        @keyframes pulse-green {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-top: 4px solid var(--brand-red);
+            overflow: hidden;
         }
 
-        @media (max-width: 640px) {
-            .calendar-float-card {
-                bottom: 16px;
-                right: 16px;
-                max-width: calc(100% - 32px);
-            }
+        .pulse-red {
+            height: 10px;
+            width: 10px;
+            background-color: var(--brand-red);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-red-anim 2s infinite;
+        }
+        @keyframes pulse-red-anim {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(214, 31, 38, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(214, 31, 38, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(214, 31, 38, 0); }
+        }
+
+        .stat-card {
+            background: #f8fafc;
+            border-left: 3px solid var(--brand-red);
         }
     </style>
 </head>
-<body class="bg-white text-slate-900 selection:bg-amber-100">
+<body class="antialiased">
 
     <!-- NAVIGATION -->
-    <nav class="border-b border-slate-100 sticky top-0 bg-white/95 backdrop-blur-md z-50">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="h-10 w-1 bg-slate-900"></div>
-                <div>
-                    <span class="block font-black text-2xl tracking-tighter text-slate-900 leading-none">INLOWPRICE</span>
-                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Corporation / Toronto</span>
+            <div class="flex items-center gap-4">
+                <!-- SVG Recreation of Diamond Logo -->
+                <div class="flex flex-col items-center justify-center gap-[2px]">
+                   <div class="flex gap-[2px]">
+                       <div class="diamond-shape opacity-40"></div>
+                       <div class="diamond-shape"></div>
+                   </div>
+                   <div class="flex gap-[2px]">
+                       <div class="diamond-shape"></div>
+                       <div class="diamond-shape opacity-40"></div>
+                   </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="logo-text-top text-2xl text-slate-900">In <span class="red-accent font-normal">Low</span> Price</span>
+                    <span class="logo-text-bottom text-slate-500 uppercase">Corporation</span>
                 </div>
             </div>
-            <div class="hidden lg:flex items-center gap-10">
-                <div class="flex flex-col text-right">
-                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Local Headquarters</span>
-                    <span class="text-sm font-semibold">Toronto, ON, Canada</span>
-                </div>
-                <a href="#contact-form-section" class="bg-slate-900 text-white px-8 py-3 rounded-none font-bold text-sm hover:bg-amber-600 transition-colors uppercase tracking-tight">
-                    Free Consultation
-                </a>
+            <div class="hidden md:flex items-center gap-10">
+                <a href="#solutions" class="text-[11px] font-bold uppercase tracking-widest text-slate-600 hover:text-red-600 transition-colors">Solutions</a>
+                <a href="#agentic" class="text-[11px] font-bold uppercase tracking-widest text-slate-600 hover:text-red-600 transition-colors">Agentic AI</a>
+                <a href="#contact" class="px-7 py-3 bg-slate-900 text-white font-black text-[11px] uppercase tracking-[0.2em] hover:bg-red-600 transition-all rounded-sm">Technical Audit</a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section class="relative py-20 lg:py-32 bg-slate-950 text-white overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/4 h-full bg-amber-600/5 -skew-x-12 transform translate-x-10"></div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <!-- Left Column: Content -->
-                <div class="">
-                    <h1 class="text-5xl lg:text-7xl font-black text-executive mb-8">
-                        Bringing Bold <br/>
-                        <span class="text-success-amber">Visions to Life.</span>
-                    </h1>
-                    <p class="text-lg lg:text-xl text-slate-400 font-medium mb-10 max-w-xl leading-relaxed">
-                        From <span class="text-white font-bold">Agentic AI</span> to high-scale e-commerce, we are the engineering core for Toronto's most ambitious startups and established firms.
-                    </p>
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <div class="flex items-center gap-4 px-6 py-4 border border-slate-800 text-slate-500 font-mono text-xs uppercase tracking-[0.2em]">
-                            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-                            Innovation At Speed
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Lead Form -->
-                <div id="contact-form-section" class="bg-white p-8 lg:p-10 shadow-2xl relative border-t-8 border-success-amber text-slate-900 min-h-[500px] flex flex-col justify-center">
-                    <div id="form-container">
-                        <h3 class="text-2xl font-black mb-2 uppercase tracking-tight">Start Your Free Strategy Session</h3>
-                        <p class="text-sm text-slate-600 mb-8 font-medium leading-relaxed">
-                            We're here to listen. Tell us about your idea or the problem you're solving, and let’s explore how we can <span class="text-slate-900 font-bold">turn your vision into a scalable reality</span>.
-                        </p>
-                        
-                        <form id="contact-form">
-                            <input type="text" name="name" placeholder="Full Name" required 
-                                   class="w-full mb-4 px-4 py-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 font-medium text-sm">
-                            
-                            <input type="email" name="email" placeholder="Direct Work Email" required 
-                                   class="w-full mb-4 px-4 py-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 font-medium text-sm">
-                            
-                            <textarea name="message" placeholder="What vision can we help you build? (e.g. 'We want to launch an AI agent for logistics', 'We need a custom B2B portal')" required 
-                                      class="w-full mb-6 px-4 py-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 font-medium text-sm min-h-[120px]"></textarea>
-                            
-                            <button type="submit" id="submit-btn" 
-                                    class="w-full py-4 bg-slate-900 text-white font-black text-sm uppercase tracking-widest hover:bg-success-amber transition-all shadow-lg flex items-center justify-center gap-2">
-                                <span>Speak with a Toronto Strategist</span>
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- SUCCESS STATE -->
-                    <div id="success-msg" class="hidden text-center fade-in">
-                        <div class="mb-6 flex justify-center">
-                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                        </div>
-                        <h3 class="text-3xl font-black mb-4 uppercase tracking-tight text-slate-900">Thank you.</h3>
-                        <p class="text-lg text-slate-600 font-medium leading-relaxed px-4">
-                            Your message is in our hands. A Toronto strategist is reviewing your vision now. We'll be in touch within <span class="text-slate-900 font-bold">24 hours</span>.
-                        </p>
-                        <button onclick="window.location.reload()" class="mt-8 text-xs font-black uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors">Send another message</button>
-                    </div>
-                    
-                    <div id="form-footer" class="mt-8 flex items-center justify-center gap-4 opacity-40">
-                        <span class="text-[10px] font-bold uppercase tracking-widest">Toronto Based Experts</span>
-                        <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
-                        <span class="text-[10px] font-bold uppercase tracking-widest">Visionary & Human-First</span>
-                    </div>
-                </div>
+    <!-- HERO SECTION (High Contrast Dark) -->
+    <section class="relative pt-32 pb-32 lg:pt-48 lg:pb-52 overflow-hidden hero-gradient">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center gap-3 px-5 py-2 bg-white/5 border border-white/10 rounded-full mb-10">
+                <span class="pulse-red"></span>
+                <span class="text-[11px] font-bold uppercase tracking-[0.3em] text-white/60">Toronto’s Trusted Dev Shop Since 2011</span>
+            </div>
+            <h1 class="text-5xl lg:text-8xl font-black text-white text-executive mb-10 max-w-6xl mx-auto">
+                From Legacy Systems to <br/>
+                <span class="red-accent">Agentic AI.</span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-slate-400 font-medium mb-16 max-w-4xl mx-auto leading-relaxed">
+                Toronto’s trusted dev shop since 2011. Whether you’re a startup launching a vision or an established enterprise automating with <span class="text-white">Agentic AI</span>, we build software that scales.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#contact" class="px-12 py-6 bg-red-accent text-white font-black uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-2xl shadow-red-900/30 rounded-sm">Request Technical Audit</a>
+                <a href="https://calendar.app.google/xEYGmg4R727b5sRBA" target="_blank" class="px-12 py-6 border border-white/20 text-white font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all rounded-sm">Book a Strategy Call</a>
             </div>
         </div>
     </section>
 
-    <!-- METRICS -->
-    <section class="bg-slate-50 border-b border-slate-200 py-16">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12">
-                <div class="flex flex-col">
-                    <span class="text-5xl font-black text-slate-900 tracking-tighter">250+</span>
-                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-2">Systems Deployed</span>
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-5xl font-black text-slate-900 tracking-tighter">15+</span>
-                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-2">Local HQ Experts</span>
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-5xl font-black text-slate-900 tracking-tighter">Startup</span>
-                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-2">Friendly Velocity</span>
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-5xl font-black text-slate-900 tracking-tighter">AI</span>
-                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-2">First Methodology</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- THE VISION SECTION -->
-    <section class="py-24 lg:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
-                <div>
-                    <div class="inline-block px-3 py-1 bg-amber-50 text-success-amber font-bold text-[10px] uppercase tracking-widest mb-6">
-                        The Visionary Choice
-                    </div>
-                    <h2 class="text-4xl lg:text-6xl font-black tracking-tighter text-slate-900 mb-8 leading-[0.9]">
-                        Engineering your <br/> next breakthrough.
-                    </h2>
-                    <p class="text-lg text-slate-600 mb-10 leading-relaxed">
-                        Great companies aren't built on off-the-shelf software. We partner with visionaries in Toronto to build the <span class="text-slate-900 font-bold">Custom Software</span>, <span class="text-slate-900 font-bold">E-commerce engines</span>, and <span class="text-slate-900 font-bold">Agentic AI</span> tools that redefine industries.
-                    </p>
-                    <div class="space-y-6">
-                        <div class="flex gap-4 p-8 bg-slate-50 border-l-4 border-slate-900">
-                            <div>
-                                <h4 class="font-bold text-slate-900 uppercase text-sm tracking-tight mb-1">Startup Velocity</h4>
-                                <p class="text-sm text-slate-500">We move at the speed of your ideas, delivering production-ready products in weeks, not months.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 p-8 bg-slate-50 border-l-4 border-slate-900">
-                            <div>
-                                <h4 class="font-bold text-slate-900 uppercase text-sm tracking-tight mb-1">Agentic AI Workflows</h4>
-                                <p class="text-sm text-slate-500">Integrating autonomous agents into your business to handle complex logic and scaling.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative group">
-                    <div class="bg-slate-900 p-12 text-white relative z-10 hover-lift">
-                        <h3 class="text-2xl font-black mb-4 uppercase tracking-tighter">The Visionary Partner</h3>
-                        <div class="h-1 w-12 bg-success-amber mb-8"></div>
-                        <p class="text-slate-400 text-lg mb-8 leading-relaxed italic">
-                            "InLowPrice didn't just write code; they understood our business model. They built an AI-driven platform that allowed us to scale without adding headcount."
-                        </p>
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-[0.3em]">Founder & CEO / Toronto Startup</span>
-                    </div>
-                    <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-slate-100 -z-10 group-hover:-bottom-4 group-hover:-right-4 transition-all"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CORE SERVICES -->
-    <section class="py-24 lg:py-32 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6 text-center mb-20">
-            <h2 class="text-sm font-bold text-success-amber uppercase tracking-widest mb-4">Core Solutions</h2>
-            <p class="text-5xl font-black text-slate-900 tracking-tighter">Built for the Modern Era.</p>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-8">
-            <!-- Service 1 -->
-            <div class="bg-white border border-slate-200 p-12 hover:border-slate-900 transition-all flex flex-col group hover-lift">
-                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-4">The Future of Work</span>
-                <h3 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Agentic AI <br/> & Automation</h3>
-                <p class="text-slate-500 text-sm mb-10 leading-relaxed flex-grow">
-                    Deploy intelligent agents that think, learn, and act. We build AI systems that handle complex B2B workflows and customer interactions autonomously.
-                </p>
-                <div class="pt-8 border-t border-slate-100 space-y-3">
-                    <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> LLM Integration
-                    </div>
-                    <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Autonomous Agents
-                    </div>
-                </div>
-            </div>
-            <!-- Service 2 -->
-            <div class="bg-white border border-slate-200 p-12 hover:border-slate-900 transition-all flex flex-col group hover-lift">
-                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-4">Scalable Trade</span>
-                <h3 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">E-commerce <br/> Ecosystems</h3>
-                <p class="text-slate-500 text-sm mb-10 leading-relaxed flex-grow">
-                    Custom-engineered storefronts and backend logistics. We specialize in high-volume Shopify, BigCommerce, and custom B2B trade platforms.
-                </p>
-                <div class="pt-8 border-t border-slate-100 space-y-3">
-                    <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> B2B Wholesale Portals
-                    </div>
-                    <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Global Scale Readiness
-                    </div>
-                </div>
-            </div>
-            <!-- Service 3 -->
-            <div class="bg-white border border-slate-200 p-12 hover:border-slate-900 transition-all flex flex-col group hover-lift">
-                <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-4">Vision to Product</span>
-                <h3 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Full-Stack App <br/> Development</h3>
-                <p class="text-slate-500 text-sm mb-10 leading-relaxed flex-grow">
-                    Mobile and web applications built with startup-level speed and enterprise-level security. We turn your sketches into high-performance software.
-                </p>
-                <div class="pt-8 border-t border-slate-100 space-y-3">
-                    <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> iOS & Android Apps
-                    </div>
-                    <div class="flex items-center gap-3 text-[10px] font-black text-slate-800 uppercase tracking-wider">
-                        <span class="w-1.5 h-1.5 bg-success-amber"></span> Cloud-Native Architecture
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TORONTO ADVANTAGE -->
+    <!-- STRATEGIC PATHWAYS (Contrast Break: Light) -->
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="bg-slate-900 p-12 lg:p-24 text-white relative overflow-hidden">
-                <div class="max-w-3xl relative z-10">
-                    <h2 class="text-4xl lg:text-7xl font-black tracking-tighter mb-8 leading-none">
-                        Built for Toronto's Visionaries.
-                    </h2>
-                    <p class="text-xl text-slate-400 mb-12 leading-relaxed">
-                        Innovation requires local accountability. We meet in your office, we understand your market, and we build with the grit that Toronto is known for.
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="p-12 stat-card hover-lift group">
+                    <span class="text-[11px] font-black text-red-600 uppercase tracking-[0.4em] mb-6 block">FOR FOUNDERS</span>
+                    <h3 class="text-4xl font-black text-slate-900 mb-6 tracking-tight">The Growth Engine.</h3>
+                    <p class="text-slate-500 text-lg mb-10 leading-relaxed">
+                        We provide the production-ready infrastructure to turn concepts into scalable revenue engines with venture-grade security and rapid delivery.
                     </p>
-                    <div class="grid sm:grid-cols-2 gap-12">
+                    <a href="#contact" class="inline-flex items-center gap-3 text-slate-900 font-black uppercase tracking-widest text-[11px] border-b-2 border-slate-200 pb-2 group-hover:border-red-600 transition-all">Initialize Scale &rarr;</a>
+                </div>
+
+                <div class="p-12 stat-card hover-lift group">
+                    <span class="text-[11px] font-black text-red-600 uppercase tracking-[0.4em] mb-6 block">FOR EXECUTIVES</span>
+                    <h3 class="text-4xl font-black text-slate-900 mb-6 tracking-tight">Legacy Modernization.</h3>
+                    <p class="text-slate-500 text-lg mb-10 leading-relaxed">
+                        Increase margins by replacing manual labor with autonomous workflows and custom portals that redefine client engagement and ops efficiency.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center gap-3 text-slate-900 font-black uppercase tracking-widest text-[11px] border-b-2 border-slate-200 pb-2 group-hover:border-red-600 transition-all">Optimize Operations &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES (Contrast Break: Slate-50) -->
+    <section id="solutions" class="py-32 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24">
+                <h2 class="text-[11px] font-black text-red-600 uppercase tracking-[0.5em] mb-6">Core Solutions</h2>
+                <p class="text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter">Engineered for Profit.</p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-10">
+                <!-- S1 -->
+                <div class="bg-white p-12 hover-lift border border-slate-200">
+                    <div class="w-14 h-14 bg-red-600 text-white flex items-center justify-center mb-8">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-6">Agentic AI <br/> Systems</h4>
+                    <p class="text-slate-500 text-sm mb-10 leading-relaxed">Autonomous agents that handle complex logic, scheduling, and customer support without human input.</p>
+                    <ul class="space-y-4 pt-8 border-t border-slate-50">
+                        <li class="flex items-center gap-3 text-[10px] font-bold text-slate-700 uppercase tracking-widest"><span class="w-1.5 h-1.5 bg-red-600"></span> LLM Integration</li>
+                        <li class="flex items-center gap-3 text-[10px] font-bold text-slate-700 uppercase tracking-widest"><span class="w-1.5 h-1.5 bg-red-600"></span> Workflow Agents</li>
+                    </ul>
+                </div>
+                <!-- S2 -->
+                <div class="bg-white p-12 hover-lift border border-slate-200">
+                    <div class="w-14 h-14 bg-slate-900 text-white flex items-center justify-center mb-8">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-6">B2B E-commerce <br/> Logistics</h4>
+                    <p class="text-slate-500 text-sm mb-10 leading-relaxed">High-volume Shopify and custom trade platforms engineered for global scale and complex wholesale logic.</p>
+                    <ul class="space-y-4 pt-8 border-t border-slate-50">
+                        <li class="flex items-center gap-3 text-[10px] font-bold text-slate-700 uppercase tracking-widest"><span class="w-1.5 h-1.5 bg-red-600"></span> Wholesale Portals</li>
+                        <li class="flex items-center gap-3 text-[10px] font-bold text-slate-700 uppercase tracking-widest"><span class="w-1.5 h-1.5 bg-red-600"></span> ERP Syncing</li>
+                    </ul>
+                </div>
+                <!-- S3 -->
+                <div class="bg-white p-12 hover-lift border border-slate-200">
+                    <div class="w-14 h-14 bg-slate-900 text-white flex items-center justify-center mb-8">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-black text-slate-900 mb-6">Production <br/> Engineering</h4>
+                    <p class="text-slate-500 text-sm mb-10 leading-relaxed">Full-stack web and mobile applications built with enterprise-grade security and modern cloud architecture.</p>
+                    <ul class="space-y-4 pt-8 border-t border-slate-50">
+                        <li class="flex items-center gap-3 text-[10px] font-bold text-slate-700 uppercase tracking-widest"><span class="w-1.5 h-1.5 bg-red-600"></span> Cloud-Native Ops</li>
+                        <li class="flex items-center gap-3 text-[10px] font-bold text-slate-700 uppercase tracking-widest"><span class="w-1.5 h-1.5 bg-red-600"></span> iOS & Android</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENTIC AI (Contrast Break: Dark High-Impact) -->
+    <section id="agentic" class="py-32 bg-slate-900 text-white overflow-hidden relative">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/40 via-transparent to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-10">
+            <div>
+                <h2 class="text-5xl lg:text-7xl font-black tracking-tighter mb-10 leading-none">
+                    Agentic AI: Your <br/> <span class="red-accent">24/7 Workforce.</span>
+                </h2>
+                <p class="text-xl text-slate-400 mb-12 leading-relaxed">
+                    We don't just build chatbots. We deploy autonomous agents that handle complex logic, logistics coordination, and customer coordination without human intervention.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-10">
+                    <div class="border-l-2 border-red-600 pl-6">
+                        <h5 class="text-white font-black uppercase text-[11px] tracking-widest mb-3">Labor Efficiency</h5>
+                        <p class="text-sm text-slate-500">Reduce operational overhead by 40% through automated decision-making.</p>
+                    </div>
+                    <div class="border-l-2 border-red-600 pl-6">
+                        <h5 class="text-white font-black uppercase text-[11px] tracking-widest mb-3">Unmatched Scale</h5>
+                        <p class="text-sm text-slate-500">Handle seasonal spikes with ease—AI scales instantly to meet demand.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-slate-950 p-12 border border-white/5 rounded-none shadow-3xl">
+                <span class="text-[10px] font-black text-red-600 uppercase tracking-[0.5em] mb-8 block">Live Deployment Stats</span>
+                <div class="space-y-8">
+                    <div class="flex justify-between items-end border-b border-white/5 pb-4">
+                        <span class="text-slate-400 font-bold uppercase text-[10px]">Response Latency</span>
+                        <span class="text-white font-black text-2xl tracking-tighter">&lt; 200ms</span>
+                    </div>
+                    <div class="flex justify-between items-end border-b border-white/5 pb-4">
+                        <span class="text-slate-400 font-bold uppercase text-[10px]">Auto-Resolution Rate</span>
+                        <span class="text-white font-black text-2xl tracking-tighter">92.4%</span>
+                    </div>
+                    <div class="flex justify-between items-end border-b border-white/5 pb-4">
+                        <span class="text-slate-400 font-bold uppercase text-[10px]">Production Uptime</span>
+                        <span class="text-white font-black text-2xl tracking-tighter">99.99%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TORONTO ADVANTAGE (High Contrast White) -->
+    <section class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="border-[16px] border-slate-900 p-12 lg:p-24 relative">
+                <div class="max-w-3xl">
+                    <h2 class="text-5xl lg:text-8xl font-black tracking-tighter mb-10 leading-[0.9] text-slate-900">
+                        Built for Toronto's <br/> Visionaries.
+                    </h2>
+                    <p class="text-xl lg:text-2xl text-slate-600 mb-12 leading-relaxed font-medium">
+                        Innovation requires local accountability. We meet in your office, understand your market, and build with the grit that Toronto is known for.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-16">
                         <div>
-                            <h4 class="font-black text-lg mb-3 uppercase tracking-tighter">Strategic Partnerships</h4>
-                            <p class="text-sm text-slate-500">We don't just build features; we consult on strategy, helping you find the shortest path to product-market fit.</p>
+                            <h4 class="font-black text-xs mb-4 uppercase tracking-[0.3em] text-red-600">Local Presence</h4>
+                            <p class="text-sm text-slate-500 font-medium">Accountability you can't get overseas. We are your technology partners next door.</p>
                         </div>
                         <div>
-                            <h4 class="font-black text-lg mb-3 uppercase tracking-tighter">Agentic Advantage</h4>
-                            <p class="text-sm text-slate-500">Stay ahead of the curve with AI-first development that gives your startup an unfair advantage.</p>
+                            <h4 class="font-black text-xs mb-4 uppercase tracking-[0.3em] text-red-600">Agentic Advantage</h4>
+                            <p class="text-sm text-slate-500 font-medium">Stay ahead of the curve with AI-first development that gives your firm a structural advantage.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGY BRIEF FORM -->
+    <section id="contact" class="py-32 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter">Start Your Vision.</h2>
+                <p class="text-slate-500 font-medium text-lg">Brief us on your business goals. We reply with a technical strategy within 24 hours.</p>
+            </div>
+            
+            <div id="form-container" class="bg-white p-10 lg:p-20 shadow-2xl rounded-none border border-slate-200">
+                <form id="contact-form" class="space-y-10">
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div class="space-y-3">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400">Full Name</label>
+                            <input type="text" name="name" placeholder="E.g. Alexander Graham" required class="w-full bg-slate-50 border border-slate-200 p-5 text-slate-900 focus:outline-none focus:border-red-600 transition-colors text-sm font-medium">
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400">Business Email</label>
+                            <input type="email" name="email" placeholder="alex@company.ca" required class="w-full bg-slate-50 border border-slate-200 p-5 text-slate-900 focus:outline-none focus:border-red-600 transition-colors text-sm font-medium">
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-[10px] font-black uppercase tracking-widest text-slate-400">Project Brief</label>
+                        <textarea name="message" placeholder="Describe the outcome you are looking for..." required class="w-full bg-slate-50 border border-slate-200 p-5 text-slate-900 h-48 focus:outline-none focus:border-red-600 transition-colors text-sm font-medium"></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn" class="w-full bg-red-accent text-white p-6 font-black uppercase tracking-[0.2em] hover:bg-slate-900 transition-all text-xs">Submit Strategy Brief</button>
+                </form>
+            </div>
+
+            <div id="success-msg" class="hidden text-center py-24 bg-white border border-slate-200 shadow-xl">
+                <div class="flex justify-center mb-10">
+                    <div class="w-24 h-24 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center border border-emerald-100">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                </div>
+                <h3 class="text-4xl font-black text-slate-900 mb-4 tracking-tighter">Brief Received.</h3>
+                <p class="text-slate-500 font-medium mb-12 text-lg">A Toronto-based strategist will reach out within 24 hours.</p>
+                <button onclick="window.location.reload()" class="text-[11px] font-black uppercase tracking-widest text-red-600 border-b-2 border-red-100 pb-1">Submit another brief</button>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-16 bg-slate-50 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col lg:flex-row justify-between items-center gap-12">
-                <div class="flex items-center gap-4">
-                    <span class="font-black text-2xl tracking-tighter">INLOWPRICE <span class="text-slate-400 font-light">CORP</span></span>
-                    <div class="w-px h-8 bg-slate-300"></div>
-                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Startup Technology Partner</span>
+    <footer class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="flex items-center gap-4">
+                <div class="flex flex-col">
+                    <span class="logo-text-top text-2xl text-white">In <span class="red-accent font-normal">Low</span> Price</span>
+                    <span class="logo-text-bottom text-white/40 uppercase">Corporation</span>
                 </div>
-                <div class="flex flex-wrap justify-center gap-10 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
-                    <a href="#" class="hover:text-slate-900 transition-colors">Toronto Office</a>
-                    <a href="#" class="hover:text-slate-900 transition-colors">Project Inquiry</a>
-                    <a href="#" class="hover:text-slate-900 transition-colors">Client Log-in</a>
-                    <span>&copy; 2024</span>
-                </div>
+            </div>
+            <div class="flex gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-white/40">
+                <a href="#" class="hover:text-red-600 transition-colors">Privacy</a>
+                <a href="#" class="hover:text-red-600 transition-colors">Terms</a>
+                <span>&copy; 2024 InLowPrice Corp. Toronto.</span>
             </div>
         </div>
     </footer>
 
-    <!-- FLOATING CALENDAR CARD -->
-    <div class="calendar-float-card p-6 text-center">
-        <div class="flex items-center justify-center mb-4">
-            <span class="pulse-dot"></span>
-            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Team is Online</span>
+    <!-- FLOATING CALENDAR -->
+    <div class="calendar-float-card group">
+        <div class="p-6">
+            <div class="flex items-center justify-center mb-4">
+                <span class="pulse-red"></span>
+                <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2">Strategist Active</span>
+            </div>
+            <h3 class="text-base font-black text-slate-900 mb-2 leading-tight text-center">Ready to Automate?</h3>
+            <p class="text-[11px] text-slate-500 mb-6 font-medium leading-relaxed text-center">Book a 15-min consultation with our engineering team.</p>
+            <a href="https://calendar.app.google/xEYGmg4R727b5sRBA" 
+               target="_blank" 
+               class="bg-slate-900 text-white px-5 py-4 text-[10px] rounded font-black uppercase tracking-[0.2em] flex items-center gap-2 transition-all hover:bg-red-600 shadow-xl w-full justify-center">
+               Book Strategy Call
+            </a>
         </div>
-        <h3 class="text-lg font-black text-slate-900 mb-2 leading-tight">Ready to Scale Your Infrastructure?</h3>
-        <p class="text-xs text-slate-500 mb-6 font-medium leading-relaxed">Select a time on our official Google Calendar for a technical consultation.</p>
-        <a href="https://calendar.app.google/xEYGmg4R727b5sRBA" 
-           target="_blank" 
-           class="bg-[#4285F4] text-white px-6 py-4 text-xs rounded-md font-bold uppercase tracking-widest inline-flex items-center gap-2 transition-all hover:bg-[#3367d6] shadow-md w-full justify-center">
-           📅 Book via Google Calendar
-        </a>
     </div>
 
-    <!-- SCRIPT FOR FORM SUBMISSION -->
+    <!-- SCRIPTS -->
     <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbzx_RjSpc4H7WLljcW02v-PLxX1tUg__GCBRqw_2yEX5-6hvxe5-KlkGV3IeUrKCPI1/exec';
       const form = document.getElementById('contact-form');
       const btn = document.getElementById('submit-btn');
       const formContainer = document.getElementById('form-container');
       const msg = document.getElementById('success-msg');
-      const formFooter = document.getElementById('form-footer');
 
       form.addEventListener('submit', e => {
         e.preventDefault();
         btn.disabled = true;
-        btn.innerHTML = "<span>Sending Your Vision...</span>";
+        btn.innerHTML = "Submitting Strategy Brief...";
         
         const formData = new FormData(form);
         
@@ -393,18 +390,28 @@
             mode: 'no-cors'
         })
         .then(() => {
-            // Smooth transition to success state
             formContainer.classList.add('hidden');
-            formFooter.classList.add('hidden');
             msg.classList.remove('hidden');
+            window.scrollTo({ top: document.getElementById('contact').offsetTop - 100, behavior: 'smooth' });
         })
         .catch(error => {
             console.error('Error!', error.message);
-            // Defaulting to success even on opaque error for better UX
             formContainer.classList.add('hidden');
-            formFooter.classList.add('hidden');
             msg.classList.remove('hidden');
         });
+      });
+
+      // Simple Reveal Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
       });
     </script>
 </body>
