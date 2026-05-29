@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRONCLAD Theme — Documentation</title>
+  <meta name="description" content="Documentation for the IRONCLAD Shopify theme from InLowPrice Corporation. Setup guides, customizations, and B2B theme configuration." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F8FAFC;
+      color: #1E293B;
+      line-height: 1.8;
+    }
+
+    /* Layout: fixed sidebar + scrollable main */
+    .layout { display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      background: #FFFFFF;
+      border-right: 1px solid #E2E8F0;
+      overflow-y: auto;
+      padding: 2rem 0;
+      z-index: 100;
+    }
+    .sidebar-logo {
+      padding: 0 1.5rem 1.5rem;
+      border-bottom: 1px solid #E2E8F0;
+      margin-bottom: 1rem;
+    }
+    .sidebar-logo h1 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #0F172A;
+    }
+    .sidebar-logo h1 span { color: #F59E0B; }
+    .sidebar-logo p {
+      font-size: 0.75rem;
+      color: #64748B;
+      margin-top: 0.25rem;
+    }
+    .sidebar nav { padding: 0.5rem 0; }
+    .sidebar nav a {
+      display: block;
+      padding: 0.5rem 1.5rem;
+      color: #475569;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+    }
+    .sidebar nav a:hover {
+      color: #0F172A;
+      background: #F1F5F9;
+      border-left-color: #E2E8F0;
+    }
+    .sidebar nav a.active {
+      color: #D97706;
+      background: #FFFBEB;
+      border-left-color: #F59E0B;
+      font-weight: 600;
+    }
+
+    /* Store URL in sidebar */
+    .sidebar-store {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid #E2E8F0;
+      margin-top: 1rem;
+    }
+    .sidebar-store label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748B;
+      margin-bottom: 0.4rem;
+    }
+    .sidebar-store input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #1E293B;
+      background: #F8FAFC;
+    }
+    .sidebar-store input:focus { outline: 2px solid #F59E0B; border-color: transparent; }
+    .sidebar-store button {
+      margin-top: 0.5rem;
+      width: 100%;
+      padding: 0.5rem;
+      background: #F59E0B;
+      color: #0F172A;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .sidebar-store button:hover { background: #D97706; }
+
+    /* Main content */
+    .main {
+      margin-left: 260px;
+      flex: 1;
+      padding: 3rem 4rem 4rem;
+      max-width: 900px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 3rem 0 1.25rem;
+      color: #0F172A;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #F1F5F9;
+    }
+    h2:first-of-type { margin-top: 0; }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+      color: #334155;
+    }
+    p { color: #475569; margin-bottom: 1rem; font-size: 0.95rem; }
+    li { color: #475569; margin-bottom: 0.6rem; font-size: 0.95rem; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    strong { color: #1E293B; }
+    code {
+      background: #F1F5F9;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: #7C3AED;
+      border: 1px solid #E2E8F0;
+    }
+
+    /* Steps */
+    .steps { counter-reset: step; list-style: none; padding-left: 0; margin-bottom: 1.5rem; }
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      background: #F59E0B;
+      color: #0F172A;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Cards */
+    .card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 1.5rem 1.75rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .card h3 { margin-top: 0; color: #0F172A; }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* Tips */
+    .tip {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+    .tip::before {
+      content: "💡 Tip";
+      display: block;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #D97706;
+      margin-bottom: 0.5rem;
+    }
+    .tip p, .tip code { margin-bottom: 0.5rem; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; background: #FFFFFF; border-radius: 8px; overflow: hidden; border: 1px solid #E2E8F0; }
+    th, td { text-align: left; padding: 0.85rem 1.25rem; border-bottom: 1px solid #F1F5F9; }
+    th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: #64748B; background: #F8FAFC; font-weight: 600; }
+    td { color: #334155; font-size: 0.9rem; }
+    tr:last-child td { border-bottom: none; }
+
+    /* Links */
+    .admin-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      color: #047857;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 0.3rem 0.3rem 0.3rem 0;
+      transition: all 0.15s;
+    }
+    .admin-link:hover { background: #D1FAE5; border-color: #6EE7B7; transform: translateY(-1px); }
+    .admin-link::before { content: "→"; font-weight: 700; }
+    .help-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      color: #B45309;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 0.3rem 0.3rem 0.3rem 0;
+      transition: all 0.15s;
+    }
+    .help-link:hover { background: #FEF3C7; border-color: #FCD34D; transform: translateY(-1px); }
+    .help-link::before { content: "?"; font-weight: 700; width: 1rem; height: 1rem; display: inline-flex; align-items: center; justify-content: center; background: #F59E0B; color: #fff; border-radius: 50%; font-size: 0.6rem; }
+    .links-row { display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0.75rem 0 1.25rem; }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 2rem 1.5rem; }
+      .mobile-nav { display: block; }
+    }
+    @media (min-width: 769px) {
+      .mobile-nav { display: none; }
+    }
+    .mobile-nav {
+      background: #fff;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .mobile-nav select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <!-- SIDEBAR NAV -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h1><span>IRONCLAD</span> Docs</h1>
+        <p>Theme Documentation by InLowPrice Corporation</p>
+      </div>
+      <nav>
+        <a href="/ironclad/">Theme landing page</a>
+        <a href="/ironclad/support/">Support page</a>
+        <a href="#getting-started">Getting Started</a>
+        <a href="#header">Header</a>
+        <a href="#footer">Footer</a>
+        <a href="#homepage">Homepage</a>
+        <a href="#products">Products</a>
+        <a href="#pages">Pages</a>
+        <a href="#navigation">Navigation</a>
+        <a href="#colors">Colors &amp; Fonts</a>
+        <a href="#dark-light">Dark / Light Mode</a>
+        <a href="#translations">Language</a>
+        <a href="#b2b">B2B Settings</a>
+        <a href="#faq">FAQ</a>
+        <a href="#support" style="margin-top: 1rem; color: #D97706; font-weight: 700;">Get Support</a>
+      </nav>
+      <div class="sidebar-store">
+        <label>Your Store URL</label>
+        <input type="text" id="store-url" placeholder="your-store.myshopify.com">
+        <button onclick="setStoreUrl()">Activate Admin Links</button>
+      </div>
+    </aside>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav">
+      <select onchange="if(this.value) window.location.hash = this.value;">
+        <option value="">Jump to section…</option>
+        <option value="#getting-started">Getting Started</option>
+        <option value="#header">Header</option>
+        <option value="#footer">Footer</option>
+        <option value="#homepage">Homepage</option>
+        <option value="#products">Products</option>
+        <option value="#pages">Pages</option>
+        <option value="#navigation">Navigation</option>
+        <option value="#colors">Colors & Fonts</option>
+        <option value="#dark-light">Dark / Light Mode</option>
+        <option value="#translations">Language</option>
+        <option value="#b2b">B2B Settings</option>
+        <option value="#faq">FAQ</option>
+        <option value="#support">Get Support</option>
+      </select>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <!-- GETTING STARTED -->
+      <h2 id="getting-started">Getting Started</h2>
+      <p>After installing IRONCLAD, open your <strong>Theme Editor</strong> to start customizing:</p>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/themes">Open Themes</a>
+        <a class="help-link" href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes" target="_blank">Shopify Help: Theme Editor</a>
+      </div>
+      <ol class="steps">
+        <li>In your Shopify admin, go to <strong>Online Store → Themes</strong></li>
+        <li>Find IRONCLAD and click <strong>Customize</strong></li>
+        <li>You'll see a live preview of your store with editing panels on the left</li>
+      </ol>
+
+      <div class="tip">
+        <p>All content in this theme is managed through the Shopify admin — no coding required. Use the Theme Editor for layout and sections, and the regular admin for products, pages, and navigation.</p>
+      </div>
+
+      <!-- HEADER -->
+      <h2 id="header">Customizing the Header</h2>
+      <p>The header includes a <strong>utility bar</strong> (phone number, business hours, quick links) and the <strong>main navigation</strong> with your logo, search icon, and a dark/light mode toggle.</p>
+
+      <h3>Changing Your Logo</h3>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a>
+        <a class="help-link" href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes/edit#update-your-logo" target="_blank">Help: Change Logo</a>
+      </div>
+      <ol class="steps">
+        <li>In Theme Editor, click the <strong>Header</strong> section</li>
+        <li>Under "Logo image", click <strong>Select image</strong> and upload your logo</li>
+        <li>Adjust the <strong>Logo width</strong> slider (80–300px, default is 180px)</li>
+      </ol>
+
+      <h3>Header Settings</h3>
+      <p>The Header section has these settings in the Theme Editor:</p>
+      <table>
+        <thead><tr><th>Setting</th><th>What It Does</th><th>Default</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Logo image</strong></td><td>Upload your store logo (SVG or PNG recommended)</td><td>—</td></tr>
+          <tr><td><strong>Logo width</strong></td><td>Size of the logo in pixels (80–300px)</td><td>180px</td></tr>
+          <tr><td><strong>Navigation menu</strong></td><td>Which menu to use for header nav links</td><td>Main menu</td></tr>
+          <tr><td><strong>Enable sticky header</strong></td><td>Header stays visible when scrolling down</td><td>On</td></tr>
+          <tr><td><strong>Show search icon</strong></td><td>Show/hide the search icon in the header</td><td>On</td></tr>
+          <tr><td><strong>Utility bar phone</strong></td><td>Phone number displayed in the top bar</td><td>"1-800-555-4766"</td></tr>
+          <tr><td><strong>Utility bar hours</strong></td><td>Business hours displayed in the top bar</td><td>"Mon–Fri 7AM–6PM EST"</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Setting Up Navigation</h3>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/menus">Open Navigation</a>
+        <a class="help-link" href="https://help.shopify.com/en/manual/online-store/menus-and-links" target="_blank">Help: Menus &amp; Links</a>
+      </div>
+      <ol class="steps">
+        <li>Go to <strong>Online Store → Navigation</strong> in your admin</li>
+        <li>Click on <strong>Main menu</strong> (or create a new menu)</li>
+        <li>Add your menu items — these become your header nav links</li>
+        <li>Back in Theme Editor → Header, select your menu under <strong>"Navigation menu"</strong></li>
+      </ol>
+
+      <h3>Utility Bar (Top Bar)</h3>
+      <p>The thin bar above the main header shows a phone number, business hours, and links to "Trade Accounts" and "Request a Quote" pages.</p>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a>
+      </div>
+      <ol class="steps">
+        <li>In Theme Editor, click the <strong>Header</strong> section</li>
+        <li>Edit the <strong>"Utility bar phone number"</strong> field (e.g., "1-800-555-4766")</li>
+        <li>Edit the <strong>"Utility bar business hours"</strong> field (e.g., "Mon–Fri 7AM–6PM EST")</li>
+        <li>Leave either field blank to hide it from the bar</li>
+      </ol>
+      <div class="tip">
+        <p>The two links point to <code>/pages/commercial-accounts</code> and <code>/pages/contact-us</code>, so make sure you create those pages in your admin.</p>
+      </div>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/pages">Open Pages</a>
+      </div>
+
+      <div class="tip">
+        <p>On mobile, the header collapses into a hamburger menu. All your menu items will appear in a slide-out drawer automatically.</p>
+      </div>
+
+      <!-- FOOTER -->
+      <h2 id="footer">Customizing the Footer</h2>
+      <p>The footer has 4 columns: your brand info (with contact details), and 3 navigation menus. Plus a newsletter signup and trust badges.</p>
+
+      <h3>Setting Up Footer Menus</h3>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/menus">Open Navigation</a>
+        <a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a>
+        <a class="help-link" href="https://help.shopify.com/en/manual/online-store/menus-and-links/editing-menus" target="_blank">Help: Edit Menus</a>
+      </div>
+      <ol class="steps">
+        <li>Go to <strong>Online Store → Navigation</strong></li>
+        <li>Create 3 menus for your footer (e.g., "Footer Products", "Footer Company", "Footer Support")</li>
+        <li>Add links to each menu (collections, pages, external URLs, etc.)</li>
+        <li>In Theme Editor → Footer, assign each menu under <strong>Menu 1</strong>, <strong>Menu 2</strong>, and <strong>Menu 3</strong></li>
+        <li>Set a heading for each column using <strong>Menu 1 heading</strong>, <strong>Menu 2 heading</strong>, <strong>Menu 3 heading</strong></li>
+      </ol>
+
+      <h3>Footer Settings</h3>
+      <p>All footer settings are editable in Theme Editor → Footer section:</p>
+      <table>
+        <thead><tr><th>Setting</th><th>What It Does</th><th>Default</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Company description</strong></td><td>Text that appears under your logo in the first column</td><td>"Precision industrial supply…"</td></tr>
+          <tr><td><strong>Phone number</strong></td><td>Your business phone (shown in first column)</td><td>"1-800-555-4766"</td></tr>
+          <tr><td><strong>Email address</strong></td><td>Your contact email (shown in first column)</td><td>"sales@ironcladsupply.com"</td></tr>
+          <tr><td><strong>Business hours</strong></td><td>Your hours of operation (shown in first column)</td><td>"Mon–Fri 7AM–6PM EST"</td></tr>
+          <tr><td><strong>Menu 1 / Menu 2 / Menu 3</strong></td><td>Pick which navigation menu appears in each column</td><td>—</td></tr>
+          <tr><td><strong>Menu 1–3 heading</strong></td><td>Column title above each menu</td><td>"Products" / "Company" / "Support"</td></tr>
+          <tr><td><strong>Show newsletter signup</strong></td><td>Toggle the email signup form on/off</td><td>On</td></tr>
+          <tr><td><strong>Newsletter heading</strong></td><td>Title above the signup form</td><td>"Get industry updates…"</td></tr>
+          <tr><td><strong>Newsletter description</strong></td><td>Short text below the newsletter title</td><td>"Join procurement professionals…"</td></tr>
+          <tr><td><strong>Show payment icons</strong></td><td>Show/hide Visa, Mastercard, etc. icons</td><td>On</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Trust Badges</h3>
+      <ol class="steps">
+        <li>In Theme Editor → Footer, click <strong>"Add block"</strong></li>
+        <li>Select <strong>"Trust Badge"</strong></li>
+        <li>Type your badge label (e.g., "Free Shipping Over $99", "30-Day Returns")</li>
+        <li>Add as many badges as you like — they display in a row above the copyright</li>
+      </ol>
+
+      <h3>Payment Icons &amp; Policies</h3>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/settings/payments">Payment Settings</a>
+        <a class="admin-link" href="#" data-admin="/admin/settings/legal">Policy Settings</a>
+      </div>
+      <p>Payment icons show automatically based on your payment providers. Toggle them with the "Show payment icons" setting. Store policies (Privacy, Terms, Refund) pull from <strong>Settings → Policies</strong> in your admin.</p>
+
+      <!-- HOMEPAGE -->
+      <h2 id="homepage">Setting Up Your Homepage</h2>
+      <p>The homepage is built from <strong>sections</strong> that you can add, remove, and reorder in the Theme Editor.</p>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a>
+        <a class="help-link" href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes/edit#add-and-remove-sections" target="_blank">Help: Add Sections</a>
+      </div>
+
+      <h3>Available Homepage Sections</h3>
+      <table>
+        <thead><tr><th>Section</th><th>What It Does</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Hero Banner</strong></td><td>Full-width banner with pre-heading, heading, subheading, two CTA buttons, and editable trust statistics. Upload your own background image. Add "Statistic" blocks for the numbers (e.g., "12K+ SKUs").</td></tr>
+          <tr><td><strong>Featured Collection</strong></td><td>Shows products from any collection. Set how many to display (2–12) and columns per row (2, 3, or 4). Includes optional "View All" link.</td></tr>
+          <tr><td><strong>Collection List</strong></td><td>Grid of collection cards with images. Great for showing your categories.</td></tr>
+          <tr><td><strong>Brand Partners</strong></td><td>Logo bar of your brand partners/suppliers. Add "Brand" blocks with a name and optional logo image.</td></tr>
+          <tr><td><strong>Quick Links</strong></td><td>Icon cards linking to important pages (Bulk Orders, Technical Support, etc.)</td></tr>
+          <tr><td><strong>Testimonials</strong></td><td>Customer testimonial cards with name, company, and quote.</td></tr>
+          <tr><td><strong>CTA Banner</strong></td><td>Call-to-action banner with heading, description, and buttons.</td></tr>
+          <tr><td><strong>Feature Highlights</strong></td><td>Icon boxes highlighting your key value propositions.</td></tr>
+          <tr><td><strong>Rich Text</strong></td><td>Free-form text content for any messaging.</td></tr>
+          <tr><td><strong>Newsletter</strong></td><td>Standalone email signup section.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Adding &amp; Reordering Sections</h3>
+      <ol class="steps">
+        <li>In Theme Editor, click <strong>"Add section"</strong> at the bottom of the left panel</li>
+        <li>Choose the section type you want from the list</li>
+        <li>Drag sections up/down to reorder them on the page</li>
+        <li>Click any section to edit its content and settings</li>
+      </ol>
+
+      <div class="tip">
+        <p>You can use the <strong>Featured Collection</strong> section multiple times to showcase different collections on your homepage (e.g., "Best Sellers" and "New Arrivals").</p>
+      </div>
+
+      <!-- PRODUCTS -->
+      <h2 id="products">Product Pages</h2>
+      <p>Product pages automatically display your product's title, images, price, description, and variants. Here's how to enhance them:</p>
+
+      <h3>Product Images</h3>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/products">Open Products</a>
+        <a class="help-link" href="https://help.shopify.com/en/manual/products/product-media" target="_blank">Help: Product Media</a>
+      </div>
+      <p>Upload multiple images per product in <strong>Products → [Your Product] → Media</strong>. The first image shows as the main large image, and all others appear as clickable thumbnails below it.</p>
+
+      <h3>Adding Collapsible Tabs (Specifications, Shipping, etc.)</h3>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a>
+      </div>
+      <p>You can add expandable content sections below the Add to Cart button:</p>
+      <ol class="steps">
+        <li>In Theme Editor, navigate to a <strong>product page</strong> (use the page selector dropdown at the top)</li>
+        <li>Click the <strong>"Product Information"</strong> section</li>
+        <li>Click <strong>"Add block" → "Collapsible tab"</strong></li>
+        <li>Enter a <strong>heading</strong> (e.g., "Specifications") and <strong>content</strong> (rich text editor)</li>
+        <li>Add more blocks for Shipping Info, Warranty, etc.</li>
+      </ol>
+
+      <h3>Trust Badges on Product Page</h3>
+      <ol class="steps">
+        <li>In the Product Information section, click <strong>"Add block" → "Trust badge"</strong></li>
+        <li>Enter your text (e.g., "Free Shipping Over $99" or "2-Year Warranty")</li>
+        <li>These appear below the image gallery with a shield icon</li>
+      </ol>
+
+      <h3>Show/Hide Product Details</h3>
+      <p>In the Product Information section settings, you can toggle these on or off:</p>
+      <table>
+        <thead><tr><th>Setting</th><th>What It Shows</th><th>Default</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Show vendor</strong></td><td>The product brand/vendor name</td><td>On</td></tr>
+          <tr><td><strong>Show SKU</strong></td><td>The SKU code</td><td>On</td></tr>
+          <tr><td><strong>Show tags</strong></td><td>Product tags</td><td>On</td></tr>
+          <tr><td><strong>Show product rating</strong></td><td>Star rating (requires a reviews app that writes to metafields)</td><td>On</td></tr>
+          <tr><td><strong>Show trust badges</strong></td><td>The trust badge blocks below the gallery</td><td>On</td></tr>
+        </tbody>
+      </table>
+
+      <!-- PAGES -->
+      <h2 id="pages">Creating Pages</h2>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/pages">Open Pages</a>
+        <a class="admin-link" href="#" data-admin="/admin/pages/new">Create New Page</a>
+        <a class="help-link" href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes/add-pages" target="_blank">Help: Pages</a>
+      </div>
+      <p>IRONCLAD includes these page templates:</p>
+
+      <table>
+        <thead><tr><th>Template name</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td><strong>page</strong> (Default)</td><td>General content pages</td></tr>
+          <tr><td><strong>page.contact</strong></td><td>Contact form with editable phone, email, address, hours</td></tr>
+          <tr><td><strong>page.about</strong></td><td>About your company</td></tr>
+          <tr><td><strong>page.faq</strong></td><td>Frequently asked questions</td></tr>
+          <tr><td><strong>page.shipping</strong></td><td>Shipping &amp; returns policy</td></tr>
+          <tr><td><strong>page.industries</strong></td><td>Industries you serve</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Creating a New Page</h3>
+      <ol class="steps">
+        <li>Go to <strong>Online Store → Pages</strong> in your admin</li>
+        <li>Click <strong>"Add page"</strong></li>
+        <li>Enter your title and content</li>
+        <li>In the right sidebar under <strong>"Theme template"</strong>, select the appropriate template from the dropdown</li>
+        <li>Click <strong>Save</strong></li>
+      </ol>
+
+      <h3>Adding Pages to Navigation</h3>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/menus">Open Navigation</a>
+      </div>
+      <p>After creating a page, add it to your menus:</p>
+      <ol class="steps">
+        <li>Go to <strong>Online Store → Navigation</strong></li>
+        <li>Click on the menu you want to edit (Main menu, Footer menu, etc.)</li>
+        <li>Click <strong>"Add menu item"</strong></li>
+        <li>Search for your page by name</li>
+        <li>Click <strong>Save</strong></li>
+      </ol>
+
+      <!-- NAVIGATION -->
+      <h2 id="navigation">Managing Navigation</h2>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/menus">Open Navigation</a>
+        <a class="help-link" href="https://help.shopify.com/en/manual/online-store/menus-and-links" target="_blank">Help: Navigation</a>
+      </div>
+      <p>Your store's navigation is managed in <strong>Online Store → Navigation</strong>. IRONCLAD uses these menus:</p>
+
+      <table>
+        <thead><tr><th>Menu</th><th>Where It Appears</th><th>How to Assign</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Main menu</strong></td><td>Header navigation bar + mobile drawer</td><td>Theme Editor → Header → "Navigation menu"</td></tr>
+          <tr><td><strong>Footer menu 1</strong></td><td>Second footer column</td><td>Theme Editor → Footer → "Menu 1"</td></tr>
+          <tr><td><strong>Footer menu 2</strong></td><td>Third footer column</td><td>Theme Editor → Footer → "Menu 2"</td></tr>
+          <tr><td><strong>Footer menu 3</strong></td><td>Fourth footer column</td><td>Theme Editor → Footer → "Menu 3"</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Adding Dropdown Menus</h3>
+      <p>To create dropdown/nested menus in your header:</p>
+      <ol class="steps">
+        <li>Go to <strong>Online Store → Navigation → Main menu</strong></li>
+        <li>Add your top-level items</li>
+        <li>Drag items slightly to the right to <strong>nest them</strong> under a parent</li>
+        <li>Nested items appear as dropdowns on desktop and indented in the mobile drawer</li>
+      </ol>
+
+      <!-- COLORS & FONTS -->
+      <h2 id="colors">Colors &amp; Fonts</h2>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a>
+        <a class="help-link" href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes/edit#change-theme-settings" target="_blank">Help: Theme Settings</a>
+      </div>
+      <p>Customize your store's look in <strong>Theme Editor → Theme Settings</strong> (click the gear icon ⚙️ at the bottom of the left panel).</p>
+
+      <h3>Colors</h3>
+      <p>Under Theme Settings → <strong>Colors</strong>:</p>
+      <table>
+        <thead><tr><th>Setting</th><th>Default</th><th>What It Changes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Primary color</strong></td><td>#F59E0B (amber)</td><td>Buttons, links, highlights, active states</td></tr>
+          <tr><td><strong>Secondary color</strong></td><td>#10B981 (emerald)</td><td>"In Stock" badges, success messages</td></tr>
+          <tr><td><strong>Danger color</strong></td><td>#EF4444 (red)</td><td>Errors, out-of-stock indicators</td></tr>
+          <tr><td><strong>Background color</strong></td><td>#0F172A (dark slate)</td><td>Main page background</td></tr>
+          <tr><td><strong>Surface color</strong></td><td>#1E293B</td><td>Card backgrounds, panels</td></tr>
+          <tr><td><strong>Border color</strong></td><td>#475569</td><td>All borders and dividers</td></tr>
+          <tr><td><strong>Text color</strong></td><td>#F8FAFC</td><td>Primary text</td></tr>
+          <tr><td><strong>Muted text color</strong></td><td>#94A3B8</td><td>Secondary/muted text</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Fonts</h3>
+      <p>Under Theme Settings → <strong>Typography</strong>:</p>
+      <table>
+        <thead><tr><th>Setting</th><th>Default</th><th>What It Changes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Heading font</strong></td><td>Inter Bold</td><td>All titles and section headings</td></tr>
+          <tr><td><strong>Body font</strong></td><td>Inter Regular</td><td>Descriptions, paragraphs, and UI text</td></tr>
+          <tr><td><strong>Heading font scale</strong></td><td>100%</td><td>Scale all heading sizes (80–150%)</td></tr>
+          <tr><td><strong>Body font scale</strong></td><td>100%</td><td>Scale all body text sizes (80–130%)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Layout</h3>
+      <p>Under Theme Settings → <strong>Layout</strong>:</p>
+      <table>
+        <thead><tr><th>Setting</th><th>Default</th><th>What It Changes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Page width</strong></td><td>1400px</td><td>Maximum content width (1000–1600px)</td></tr>
+          <tr><td><strong>Section spacing</strong></td><td>40px</td><td>Gap between homepage sections (0–100px)</td></tr>
+          <tr><td><strong>Border radius</strong></td><td>2px</td><td>Roundness of buttons, cards, inputs (0–16px)</td></tr>
+          <tr><td><strong>Text direction</strong></td><td>LTR</td><td>Left-to-right or right-to-left</td></tr>
+          <tr><td><strong>Logo subtext</strong></td><td>"INDUSTRIAL SUPPLY"</td><td>Small text below store name when no logo image is uploaded</td></tr>
+        </tbody>
+      </table>
+
+      <!-- DARK/LIGHT MODE -->
+      <h2 id="dark-light">Dark / Light Mode</h2>
+      <p>IRONCLAD includes a dark/light mode toggle button in the header (sun/moon icon). Your customers can switch between modes, and their preference is saved in their browser.</p>
+      <p>The theme defaults to <strong>dark mode</strong>. Both modes are fully styled — no configuration needed.</p>
+      <p>The dark/light toggle is always visible in the header. There is no Theme Editor setting to hide it.</p>
+
+      <!-- TRANSLATIONS -->
+      <h2 id="translations">Changing Text &amp; Language</h2>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/themes">Open Themes</a>
+        <a class="admin-link" href="#" data-admin="/admin/settings/languages">Language Settings</a>
+        <a class="help-link" href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes/language/change-wording" target="_blank">Help: Change Wording</a>
+      </div>
+      <p>All button labels, messages, and UI text can be changed without editing code:</p>
+      <ol class="steps">
+        <li>Go to <strong>Online Store → Themes</strong></li>
+        <li>Click the <strong>⋯</strong> menu on IRONCLAD → <strong>"Edit default theme content"</strong></li>
+        <li>Search for any text you want to change (e.g., "Add to cart", "Sold out")</li>
+        <li>Edit the text and click <strong>Save</strong></li>
+      </ol>
+
+      <p>To add a second language:</p>
+      <ol class="steps">
+        <li>Go to <strong>Settings → Languages</strong></li>
+        <li>Click <strong>"Add language"</strong> and select your language</li>
+        <li>Translate theme content in the language editor</li>
+      </ol>
+
+      <!-- B2B SETTINGS -->
+      <h2 id="b2b">B2B Settings</h2>
+      <div class="links-row">
+        <a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a>
+      </div>
+      <p>Under Theme Settings → <strong>B2B Settings</strong>, configure features for commercial buyers:</p>
+      <table>
+        <thead><tr><th>Setting</th><th>Default</th><th>What It Does</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Show SKU</strong></td><td>On</td><td>Display SKU codes on product pages</td></tr>
+          <tr><td><strong>Show inventory</strong></td><td>On</td><td>Display stock levels</td></tr>
+          <tr><td><strong>Low stock threshold</strong></td><td>10</td><td>Number below which "Low Stock" warning shows</td></tr>
+          <tr><td><strong>Minimum order quantity</strong></td><td>1</td><td>Minimum qty customers can order</td></tr>
+          <tr><td><strong>Hide prices when logged out</strong></td><td>Off</td><td>Only show prices to logged-in customers</td></tr>
+          <tr><td><strong>Quick order enabled</strong></td><td>On</td><td>Enable quick-add functionality</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Cart Settings</h3>
+      <p>Under Theme Settings → <strong>Cart</strong>:</p>
+      <table>
+        <thead><tr><th>Setting</th><th>Default</th><th>What It Does</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cart type</strong></td><td>Page</td><td>Choose between a full page cart or a drawer/sidebar cart</td></tr>
+          <tr><td><strong>Show vendor in cart</strong></td><td>On</td><td>Display the brand name next to each cart item</td></tr>
+          <tr><td><strong>Show SKU in cart</strong></td><td>On</td><td>Display SKU in the cart line items</td></tr>
+          <tr><td><strong>Enable order notes</strong></td><td>On</td><td>Show a PO number / order notes field in the cart</td></tr>
+        </tbody>
+      </table>
+
+      <!-- FAQ -->
+      <h2 id="faq">Frequently Asked Questions</h2>
+
+      <div class="card">
+        <h3>How do I change the hero banner image?</h3>
+        <p>Theme Editor → Homepage → click the <strong>"Hero Banner"</strong> section → upload your image under <strong>"Background image"</strong>.</p>
+        <div class="links-row"><a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a></div>
+      </div>
+
+      <div class="card">
+        <h3>How do I add products to a featured collection on the homepage?</h3>
+        <p>First, create a collection in <strong>Products → Collections</strong> and add products to it. Then in Theme Editor → Homepage → click the "Featured Collection" section → select that collection from the <strong>"Collection"</strong> dropdown.</p>
+        <div class="links-row">
+          <a class="admin-link" href="#" data-admin="/admin/collections">Open Collections</a>
+          <a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>How do I show/hide the newsletter signup in the footer?</h3>
+        <p>Theme Editor → Footer section → toggle <strong>"Show newsletter signup"</strong> on or off.</p>
+        <div class="links-row"><a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a></div>
+      </div>
+
+      <div class="card">
+        <h3>How do I add a new collection to the collection list on the homepage?</h3>
+        <p>Theme Editor → Homepage → click "Collection List" section → click <strong>"Add block"</strong> → choose a collection from the dropdown.</p>
+        <div class="links-row"><a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a></div>
+      </div>
+
+      <div class="card">
+        <h3>How do I enable the order notes / PO number field in cart?</h3>
+        <p>Theme Editor → Theme Settings (gear icon ⚙️) → <strong>Cart</strong> → check <strong>"Enable order notes"</strong>. This is enabled by default.</p>
+        <div class="links-row"><a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a></div>
+      </div>
+
+      <div class="card">
+        <h3>How do I change the payment icons in the footer?</h3>
+        <p>Payment icons are automatic — they show based on your active payment providers in <strong>Settings → Payments</strong>. You can hide them entirely in Theme Editor → Footer → uncheck <strong>"Show payment icons"</strong>.</p>
+        <div class="links-row"><a class="admin-link" href="#" data-admin="/admin/settings/payments">Payment Settings</a></div>
+      </div>
+
+      <div class="card">
+        <h3>My footer columns are empty — how do I fix this?</h3>
+        <p>You need to create navigation menus and assign them. Go to <strong>Online Store → Navigation</strong>, create menus, add links to them, then in Theme Editor → Footer, assign them to Menu 1, Menu 2, and Menu 3.</p>
+        <div class="links-row">
+          <a class="admin-link" href="#" data-admin="/admin/menus">Open Navigation</a>
+          <a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>How do I add product specifications?</h3>
+        <p>In Theme Editor, navigate to any product page (use page selector at top), click "Product Information" section, then click <strong>"Add block" → "Collapsible tab"</strong>. Enter a heading like "Specifications" and your content.</p>
+        <div class="links-row"><a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a></div>
+      </div>
+
+      <div class="card">
+        <h3>How do I change the utility bar phone number and hours?</h3>
+        <p>Theme Editor → Header section → edit the <strong>"Utility bar phone number"</strong> and <strong>"Utility bar business hours"</strong> fields. Leave a field blank to hide it.</p>
+        <div class="links-row"><a class="admin-link" href="#" data-admin="/admin/themes/current/editor">Open Theme Editor</a></div>
+      </div>
+
+      <div class="card">
+        <h3>Can I disable the dark/light mode toggle?</h3>
+        <p>There is no Theme Editor setting to hide the toggle. To remove it, you would need to edit <code>sections/header.liquid</code> and remove the toggle button code.</p>
+      </div>
+
+      <div class="card">
+        <h3>Can I use this theme on mobile?</h3>
+        <p>Yes — IRONCLAD is fully responsive. It automatically adapts to phones, tablets, and desktops. No configuration needed.</p>
+      </div>
+
+      <!-- SUPPORT -->
+      <h2 id="support">Get Support</h2>
+      <div class="card" style="background: #FFFBEB; border-color: #FDE68A; text-align: center; padding: 2.5rem;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Need Help With Your Theme?</h3>
+        <p style="font-size: 1.05rem; color: #475569; margin-bottom: 1.5rem;">Our team is here to help you get the most out of IRONCLAD. Reach out and we'll respond within 24 hours.</p>
+        <a href="mailto:themes@inlowprice.com" style="display: inline-block; background: #F59E0B; color: #0F172A; padding: 0.85rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 700; text-decoration: none; margin-bottom: 1rem;">Email Us: themes@inlowprice.com</a>
+        <p style="margin-top: 1rem;"><a href="https://inlowprice.com?source=ironclad_docs" target="_blank" style="color: #D97706; font-weight: 600; text-decoration: none; font-size: 0.95rem;">Visit inlowprice.com →</a></p>
+      </div>
+
+      <div style="border-top: 1px solid #E2E8F0; margin-top: 3rem; padding-top: 2rem;">
+        <p style="text-align: center; font-size: 0.8rem; color: #94A3B8;">IRONCLAD Theme Documentation © 2026 · <a href="mailto:themes@inlowprice.com" style="color: #D97706; text-decoration: none;">themes@inlowprice.com</a> · <a href="https://inlowprice.com?source=ironclad_docs" target="_blank" style="color: #D97706; text-decoration: none;">inlowprice.com</a></p>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    function setStoreUrl() {
+      var store = document.getElementById('store-url').value.trim();
+      if (!store) return;
+      store = store.replace(/^https?:\/\//, '').replace(/\/$/, '');
+      if (!store.includes('.')) store += '.myshopify.com';
+
+      var baseUrl = 'https://' + store;
+      document.querySelectorAll('.admin-link[data-admin]').forEach(function(link) {
+        link.href = baseUrl + link.dataset.admin;
+        link.target = '_blank';
+      });
+      localStorage.setItem('ironclad-docs-store', store);
+      document.getElementById('store-url').style.borderColor = '#10B981';
+      document.getElementById('store-url').value = store + ' ✓';
+    }
+
+    // Restore saved store URL
+    var saved = localStorage.getItem('ironclad-docs-store');
+    if (saved) {
+      document.getElementById('store-url').value = saved;
+      setStoreUrl();
+    }
+
+    // Highlight active nav link on scroll
+    var sections = document.querySelectorAll('h2[id]');
+    var navLinks = document.querySelectorAll('.sidebar nav a');
+    window.addEventListener('scroll', function() {
+      var current = '';
+      sections.forEach(function(section) {
+        if (window.scrollY >= section.offsetTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
