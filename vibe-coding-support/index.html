@@ -332,6 +332,8 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding:36px 0}
 <label class="fl">Business email *<input name="email" type="email" placeholder="you@company.com" autocomplete="email" required/></label>
 </div>
 <label class="fl">What do you need help with?<textarea name="f_message" class="prefill" data-label="Message" placeholder="Briefly describe what you need &mdash; a few lines is enough."></textarea></label>
+<label class="fl">Quick check * &mdash; what is <span class="cap-q"></span>?<input name="f_captcha" inputmode="numeric" placeholder="Your answer" autocomplete="off" required/></label>
+<input type="text" name="f_website" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;opacity:0" tabindex="-1" autocomplete="off" aria-hidden="true"/>
 <p class="err">Please add your name and a valid email.</p>
 <button class="btn" type="submit">Get Help With My App →</button>
 <p class="note">Only your name and email are required. We only use your details to reply to this enquiry.</p>
@@ -388,6 +390,8 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding:36px 0}
 <label class="fl">What do you need help with?<select name="f_need" class="prefill-select" data-label="Help needed"><option value="">Choose one (optional)</option><option>Fix bugs</option><option>Code review</option><option>Deployment</option><option>New features</option><option>Security</option><option>Ongoing support</option></select></label>
 <label class="fl">Application URL (optional)<input name="f_url" data-label="Application URL" placeholder="https://…"/></label>
 <label class="fl">Describe where you're stuck<textarea name="f_desc" class="prefill" data-label="Where they're stuck" placeholder="What did you build, and what's not working?"></textarea></label>
+<label class="fl">Quick check * &mdash; what is <span class="cap-q"></span>?<input name="f_captcha" inputmode="numeric" placeholder="Your answer" autocomplete="off" required/></label>
+<input type="text" name="f_website" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;opacity:0" tabindex="-1" autocomplete="off" aria-hidden="true"/>
 <p class="err">Please add your name and a valid email.</p>
 <button class="btn" type="submit">Get Help With My App →</button>
 <p class="note">Only your name and email are required. We only use your details to reply to this enquiry.</p>
@@ -467,6 +471,10 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding:36px 0}
    });
  });
  document.querySelectorAll('form.enquiry').forEach(function(form){
+  form.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.matches('input[name="name"],input[name="email"]'))e.preventDefault();});
+   function newCap(){var a=2+Math.floor(Math.random()*8),b=2+Math.floor(Math.random()*8);form.dataset.cap=a+b;var q=form.querySelector('.cap-q');if(q)q.textContent=a+' + '+b;}
+   newCap();
+
    form.addEventListener('submit',function(e){
      e.preventDefault();
      var nameEl=form.querySelector('input[name="name"]'),emailEl=form.querySelector('input[name="email"]');
@@ -475,6 +483,9 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding:36px 0}
      var ok=name&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
      err.textContent='Please add your name and a valid email.';
      err.classList.toggle('show',!ok); if(!ok)return;
+     var hp=form.querySelector('input[name="f_website"]'); if(hp&&hp.value.trim())return;
+     var capEl=form.querySelector('input[name="f_captcha"]'); if(!capEl||capEl.value.trim()===''||parseInt(capEl.value,10)!==parseInt(form.dataset.cap,10)){err.textContent='Please answer the quick check correctly.';err.classList.add('show');newCap();return;}
+
      var lines=[];
      form.querySelectorAll('[data-label]').forEach(function(f){
        var v=(f.value||'').trim(); if(!v)return;
@@ -493,7 +504,7 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding:36px 0}
        var box=form.querySelector('.ok'); box.classList.add('show');
        box.scrollIntoView({behavior:'smooth',block:'center'});
        form.querySelectorAll('input,select,textarea').forEach(function(f){if(f!==nameEl&&f!==emailEl)f.value='';});
-       nameEl.value=''; emailEl.value='';
+       nameEl.value=''; emailEl.value=''; newCap();
      }).catch(function(){
        btn.disabled=false; btn.textContent=orig;
        err.textContent='Something went wrong sending \u2014 please try again, or email jas [at] inlowprice [dot] com.';
